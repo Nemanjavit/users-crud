@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Input from "./Input";
 import Button from "./Button";
+import { Link } from "react-router-dom";
 
 const SignUpPage = () => {
   const [name, setName] = useState({
@@ -23,6 +24,7 @@ const SignUpPage = () => {
             <i className="fas fa-lock fa-3x p-3 text-white"></i>
           </div>
         </div>
+        <h3>Sign up page</h3>
         <div className="row">
           <form className="mx-auto my-4" onSubmit={submitHandler}>
             <div className="form-row my-3 justify-content-center">
@@ -67,9 +69,10 @@ const SignUpPage = () => {
             </div>
             <div className="form-row justify-content-between">
               <div className="col-2">
-                <Input
+                <input
+                  className="my-2"
                   type="checkbox"
-                  changehandler={(e) => setName({ ...name, checkbox: true })}
+                  onChange={(e) => setName({ ...name, checkbox: true })}
                 />
               </div>
               <div className="col-10">
@@ -80,6 +83,11 @@ const SignUpPage = () => {
               </div>
             </div>
             <Button name="Sign Up" type="submit" />
+            <div className="form-row justify-content-end py-3">
+              <Link to="/signin">
+                <span>Already have an account?Sign in</span>
+              </Link>
+            </div>
           </form>
         </div>
       </div>
