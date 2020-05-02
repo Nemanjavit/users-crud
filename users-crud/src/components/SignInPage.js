@@ -2,17 +2,27 @@ import React, { useState } from "react";
 import Input from "./Input";
 import Button from "./Button";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { useFormik } from "formik";
 
 const SignInPage = () => {
-  const [login, setLogin] = useState({
-    email: "",
-    password: "",
-    rememberMe: false,
-  });
-  const submitHandler = (e) => {
-    e.preventDefault();
-    console.log(login);
+  const headers = {
+    "Content-Type": "application/json",
+    "x-api-key": "B1tD3V",
   };
+  const formik = useFormik({
+    initialValues: { email: "", password: "" },
+    onSubmit: (values) => {
+      axios
+        .post("https://blog-api.hypetech.xyz/v1/auth/login", values, {
+          headers: headers,
+        })
+        .then((res) => {
+          console.log(res);
+        });
+    },
+  });
+
   return (
     <div className="container">
       <div className="py-5">
@@ -23,34 +33,30 @@ const SignInPage = () => {
         </div>
         <h3>Sign In</h3>
         <div className="row">
-          <form className="mx-auto" onSubmit={submitHandler}>
+          <form className="mx-auto" onSubmit={formik.handleSubmit}>
             <div className="form-row my-3 justify-content-center">
               <div className="col-12">
                 <Input
                   type="email"
+                  name="email"
                   placeholder="Email Address *"
-                  changehandler={(e) =>
-                    setLogin({ ...login, email: e.target.value })
-                  }
+                  changehandler={formik.handleChange}
+                  inputValue={formik.values.email}
                 />
               </div>
               <div className="col-12 m-3">
                 <Input
+                  name="password"
                   type="password"
                   placeholder="Password *"
-                  changehandler={(e) =>
-                    setLogin({ ...login, password: e.target.value })
-                  }
+                  changehandler={formik.handleChange}
+                  inputValue={formik.values.password}
                 />
               </div>
             </div>
             <div className="form-row ">
               <div className="col-2 justify-content-start">
-                <input
-                  className="my-3"
-                  type="checkbox"
-                  onChange={(e) => setLogin({ rememberMe: true })}
-                />
+                <input className="my-3" type="checkbox" />
               </div>
               <div className="col-8 text-left">
                 <p className="my-2">Remember me</p>
