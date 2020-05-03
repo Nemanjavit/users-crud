@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Dashboard from "./components/Dashboard";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import AboutPage from "./components/AboutPage";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/signup" component={SignUpPage} />
           <Route path="/signin" component={SignInPage} />
+          <Route path="/about" component={AboutPage} />
         </Switch>
         <Footer />
       </div>
