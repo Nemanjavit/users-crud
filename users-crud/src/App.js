@@ -5,6 +5,7 @@ import SignInPage from "./components/SignInPage";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Dashboard from "./components/Dashboard";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/signup" component={SignUpPage} />
           <Route path="/signin" component={SignInPage} />
         </Switch>
+        <Footer />
       </div>
     </Router>
   );
