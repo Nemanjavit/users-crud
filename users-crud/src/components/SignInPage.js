@@ -1,25 +1,24 @@
 import React, { useState } from "react";
 import Input from "./Input";
 import Button from "./Button";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import { useFormik } from "formik";
+import { signIn } from "../services/postServices";
 
 const SignInPage = () => {
-  const headers = {
-    "Content-Type": "application/json",
-    "x-api-key": "B1tD3V",
-  };
+  const history = useHistory();
+
   const formik = useFormik({
     initialValues: { email: "", password: "" },
     onSubmit: (values) => {
-      axios
-        .post("https://blog-api.hypetech.xyz/v1/auth/login", values, {
-          headers: headers,
-        })
+      signIn(values)
         .then((res) => {
+          localStorage.setItem("token", res.data.accessToken);
+          history.push("/dashboard");
           console.log(res);
-        });
+        })
+        .catch((err) => alert("Wrong credentials"));
     },
   });
 

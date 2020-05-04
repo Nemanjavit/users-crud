@@ -15,6 +15,7 @@ function App() {
       <div className="App">
         <Header />
         <Switch>
+          <Route path="/" exact component={PostsPage} />
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/signup" component={SignUpPage} />
           <Route path="/signin" component={SignInPage} />

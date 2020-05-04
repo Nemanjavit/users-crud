@@ -16,3 +16,8 @@ export const searchUser = (userId) => {
     })
     .then((res) => res.data);
 };
+export const signIn = (values) => {
+  return axios.post(`https://blog-api.hypetech.xyz/v1/auth/login`, values, {
+    headers: headers,
+  });
+};
