@@ -21,7 +21,7 @@ const PostCard = (props) => {
       </div>
       <div className="card-footer">
         <p className="card-text">
-          <small className="text-muted">
+          <small className="">
             Author name:{name.first}
             {name.last}
           </small>
