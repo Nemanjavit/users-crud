@@ -7,6 +7,7 @@ import Dashboard from "./components/Dashboard";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import AboutPage from "./components/AboutPage";
+import PostsPage from "./components/PostsPage";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/signup" component={SignUpPage} />
           <Route path="/signin" component={SignInPage} />
           <Route path="/about" component={AboutPage} />
+          <Route path="/posts" component={PostsPage} />
         </Switch>
         <Footer />
       </div>
