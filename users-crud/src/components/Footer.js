@@ -18,7 +18,11 @@ const Footer = () => {
         </div>
         <div>
           {token ? (
-            <Link onClick={() => localStorage.removeItem("token")} to="/">
+            <Link
+              className="text-white"
+              onClick={() => localStorage.removeItem("token")}
+              to="/"
+            >
               Log Out
             </Link>
           ) : (
