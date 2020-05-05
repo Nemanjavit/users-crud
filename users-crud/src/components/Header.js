@@ -18,7 +18,7 @@ const Header = () => {
               <Link to="/myposts" className="text-white">
                 My Posts
               </Link>
-              <Link to="/dashboard" className="text-white">
+              <Link to="/dashboard" className="text-white mx-2">
                 Dashboard
               </Link>
             </div>

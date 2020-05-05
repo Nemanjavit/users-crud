@@ -7,7 +7,6 @@ const PostCard = (props) => {
 
   useEffect(() => {
     searchUser(post.userId).then((res) => {
-      console.log(res.name);
       setName({ first: res.name.first, last: res.name.last });
     });
   }, [post.userId]);

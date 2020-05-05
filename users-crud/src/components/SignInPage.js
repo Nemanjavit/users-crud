@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import Input from "./Input";
 import Button from "./Button";
 import { Link, useHistory } from "react-router-dom";
-import axios from "axios";
 import { useFormik } from "formik";
 import { signIn } from "../services/postServices";
 
