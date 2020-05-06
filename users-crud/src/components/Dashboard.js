@@ -7,10 +7,9 @@ const Dashboard = () => {
   const [users, setUsers] = useState([]);
   const [comments, setComments] = useState([]);
   const [posts, setPosts] = useState([]);
-  const [token, setToken] = useState("");
+
   const history = useHistory();
 
-  console.log(token);
   useEffect(() => {
     const jwt = getToken();
     if (jwt) {
