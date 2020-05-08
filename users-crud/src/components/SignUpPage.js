@@ -11,16 +11,16 @@ const SignUpPage = () => {
     "x-api-key": "B1tD3V",
   };
   const formik = useFormik({
-    initialValues: { firstName: "", lastName: "", email: "", password: "" },
+    initialValues: {
+      name: "",
+      email: "",
+      password: "",
+    },
     onSubmit: (values) => {
-      const name = `${values.firstName}${values.lastName}`;
-      const data = {
-        name: `${name}`,
-        email: `${values.email}`,
-        password: `${values.password}`,
-      };
+      console.log(values);
+
       axios
-        .post("https://blog-api.hypetech.xyz/v1/auth/register", data, {
+        .post("https://blog-api.hypetech.xyz/v1/auth/register", values, {
           headers: headers,
         })
         .then((res) => {
@@ -44,20 +44,14 @@ const SignUpPage = () => {
               <div className="col-6">
                 <Input
                   type="text"
-                  name="firstName"
+                  name="name"
                   placeholder="First Name *"
                   changehandler={formik.handleChange}
-                  inputValue={formik.values.firstName}
+                  inputValue={formik.values.first}
                 />
               </div>
               <div className="col-6">
-                <Input
-                  name="lastName"
-                  type="text"
-                  placeholder="Last Name *"
-                  changehandler={formik.handleChange}
-                  inputValue={formik.values.lastName}
-                />
+                <Input name="last" type="text" placeholder="Last Name *" />
               </div>
             </div>
             <div className="form-row justify-content-center">

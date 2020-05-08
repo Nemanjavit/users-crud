@@ -1,21 +1,24 @@
 import React, { useEffect, useState } from "react";
-import { Link, useHistory, Redirect } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { getUsers, getComments, getPosts } from "../services/postServices";
-import { getToken } from "./Helpers/token";
+import { getToken, getEmail } from "./Helpers/token";
 
 const Dashboard = () => {
   const [users, setUsers] = useState([]);
   const [comments, setComments] = useState([]);
   const [posts, setPosts] = useState([]);
-
   const history = useHistory();
-
+  console.log(posts);
   useEffect(() => {
     const jwt = getToken();
+    const email = getEmail();
     if (jwt) {
       getUsers().then((res) => {
         setUsers(res.data);
+        const userId = res.data.filter((user) => user.email === email);
+        console.log(userId);
       });
+
       getComments().then((res) => {
         setComments(res.data);
       });

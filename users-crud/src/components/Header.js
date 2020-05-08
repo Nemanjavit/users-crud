@@ -10,7 +10,7 @@ const Header = () => {
   }, [token, location]);
   return (
     <header className="bg-dark">
-      <nav className="navbar navbar-dark container px-5">
+      <nav className="navbar navbar-dark container px-0">
         <span className="navbar-brand mb-0 h1">Navbar</span>
         <div>
           {token ? (

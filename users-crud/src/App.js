@@ -8,6 +8,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import AboutPage from "./components/AboutPage";
 import PostsPage from "./components/PostsPage";
+import MyPostsPage from "./components/MyPostsPage";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/signin" component={SignInPage} />
           <Route path="/about" component={AboutPage} />
           <Route path="/posts" component={PostsPage} />
+          <Route path="/myposts" component={MyPostsPage} />
         </Switch>
         <Footer />
       </div>

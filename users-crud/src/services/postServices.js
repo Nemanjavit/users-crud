@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const headers = {
+  // Authorization: `Bearer ${token}`,
   "Content-Type": "application/json",
   "x-api-key": "B1tD3V",
 };

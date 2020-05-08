@@ -1,21 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import Input from "./Input";
 import Button from "./Button";
 import { Link, useHistory } from "react-router-dom";
 import { useFormik } from "formik";
-import { signIn } from "../services/postServices";
+import { signIn, getUsers } from "../services/postServices";
 
 const SignInPage = () => {
   const history = useHistory();
+  const [users, setUsers] = useState([]);
 
   const formik = useFormik({
     initialValues: { email: "", password: "" },
     onSubmit: (values) => {
       signIn(values)
         .then((res) => {
-          localStorage.setItem("token", res.data.accessToken);
-          history.push("/dashboard");
           console.log(res);
+          localStorage.setItem("token", res.data.accessToken);
+          localStorage.setItem("useremail", values.email);
+          history.push("/dashboard");
         })
         .catch((err) => alert("Wrong credentials"));
     },
